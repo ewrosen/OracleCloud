@@ -63,16 +63,6 @@ resource "oci_core_private_ip" "untrust_private_ip" {
   ip_address     = "${var.untrust_floating_private_ip}"
 }
 
-resource "oci_core_public_ip" "untrust_public_ip" {
-  #Required
-  compartment_id = "${var.compartment_ocid}"
-  lifetime       = "${var.untrust_public_ip_lifetime}"
-
-  #Optional    
-  display_name  = "vm-untrust"
-  private_ip_id = "${oci_core_private_ip.untrust_private_ip.id}"
-}
-
 resource "oci_core_vnic_attachment" "vnic_attach_trust" {
   instance_id  = "${oci_core_instance.vm.id}"
   display_name = "vnic_trust"
