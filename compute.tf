@@ -6,7 +6,7 @@ resource "oci_core_instance" "vm" {
 
   create_vnic_details {
     subnet_id        = "${oci_core_subnet.mgmt_subnet.id}"
-    display_name     = "vm"
+    display_name     = "vm-2"
     assign_public_ip = true
     hostname_label   = "vm"
   }
